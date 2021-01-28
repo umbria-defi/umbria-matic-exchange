@@ -1,8 +1,8 @@
-# SushiSwap Classic Exchange Interface
+# Umbria Matic Exchange Interface
 
 Forked from [Uniswap/uniswap-interface](https://github.com/Uniswap/uniswap-interface), and updated to work with Umbria contracts running on the Matic sidechain.
 
-To access the Umbria Matic Exchnage, visit [v2.umbria.network](Not yet available).
+To access the Umbria Matic Exchnage, visit [https://v2.umbria.network](Not yet available).
 
 ## Development
 
