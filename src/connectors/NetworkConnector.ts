@@ -52,11 +52,14 @@ class MiniRpcProvider implements AsyncSendable {
 
   public readonly clearBatch = async () => {
     console.debug('Clearing batch', this.batch)
+    console.log('Clearing batch', this.batch)
     const batch = this.batch
     this.batch = []
     this.batchTimeoutId = null
     let response: Response
     try {
+      console.log('url: ')
+      console.log(this.url)
       response = await fetch(this.url, {
         method: 'POST',
         headers: { 'content-type': 'application/json', accept: 'application/json' },
@@ -83,6 +86,8 @@ class MiniRpcProvider implements AsyncSendable {
       memo[current.request.id] = current
       return memo
     }, {})
+    console.log('json object is: ')
+    console.log(json)
     for (const result of json) {
       const {
         resolve,

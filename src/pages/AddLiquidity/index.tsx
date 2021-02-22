@@ -141,6 +141,15 @@ export default function AddLiquidity({
       method: (...args: any) => Promise<TransactionResponse>,
       args: Array<string | string[] | number>,
       value: BigNumber | null
+
+    console.log('router: ');
+    console.log(router);  
+
+    console.log('currency 1: ');
+    console.log(currencyA);
+    console.log('currency 2: ');
+    console.log(currencyB); 
+
     if (currencyA === ETHER || currencyB === ETHER) {
       const tokenBIsETH = currencyB === ETHER
       estimate = router.estimateGas.addLiquidityETH
@@ -207,6 +216,7 @@ export default function AddLiquidity({
           console.error(error)
         }
         console.log('error here! ===== factory address: '+FACTORY_ADDRESS)
+        console.log(error);
 
         console.error(error)
       })

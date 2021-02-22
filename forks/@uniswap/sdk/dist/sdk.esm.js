@@ -20,6 +20,7 @@ var ChainId
   ChainId[(ChainId['RINKEBY'] = 4)] = 'RINKEBY'
   ChainId[(ChainId['G\xD6RLI'] = 5)] = 'G\xD6RLI'
   ChainId[(ChainId['KOVAN'] = 42)] = 'KOVAN'
+  ChainId[(ChainId['MUMBAI'] = 80001)] = 'MUMBAI'
 })(ChainId || (ChainId = {}))
 
 var TradeType
@@ -35,8 +36,8 @@ var Rounding
   Rounding[(Rounding['ROUND_UP'] = 2)] = 'ROUND_UP'
 })(Rounding || (Rounding = {}))
 
-var FACTORY_ADDRESS = '0x877Aa46857F399a6B4986db81E78605E14073E8E'
-var INIT_CODE_HASH = '0xf9d61b4656492ec7d5fbd3bbb6f78a4640938c69c6556e43f7d20573da720cec'
+var FACTORY_ADDRESS = '0xf6623DBf0673A48f39A89c88228f6364cCdAf0B7'
+var INIT_CODE_HASH = '0x08c174ebbcb8d5a55a589c4fe55d86c1b93efaeabb2560b3bfc82c6ef05ce975'
 var MINIMUM_LIQUIDITY = /*#__PURE__*/ JSBI.BigInt(1000) // exports for internal consumption
 
 var ZERO = /*#__PURE__*/ JSBI.BigInt(0)
@@ -417,7 +418,7 @@ var Currency =
  * The only instance of the base class `Currency`.
  */
 
-Currency.ETHER = /*#__PURE__*/ new Currency(18, 'ETH', 'Ether')
+Currency.ETHER = /*#__PURE__*/ new Currency(18, 'MATIC', 'Matic')
 var ETHER = Currency.ETHER
 
 var _WETH
@@ -500,14 +501,14 @@ var WETH =
   )),
   (_WETH[ChainId.ROPSTEN] = /*#__PURE__*/ new Token(
     ChainId.ROPSTEN,
-    '0xc778417E063141139Fce010982780140Aa0cD5Ab',
+    '0x8cc8538d60901d19692F5ba22684732Bc28F54A3',
     18,
     'WETH',
     'Wrapped Ether'
   )),
   (_WETH[ChainId.RINKEBY] = /*#__PURE__*/ new Token(
     ChainId.RINKEBY,
-    '0xc778417E063141139Fce010982780140Aa0cD5Ab',
+    '0x8cc8538d60901d19692F5ba22684732Bc28F54A3',
     18,
     'WETH',
     'Wrapped Ether'
@@ -526,6 +527,13 @@ var WETH =
     'WETH',
     'Wrapped Ether'
   )),
+  (_WETH[ChainId.MUMBAI] = /*#__PURE__*/ new Token(
+    ChainId.MUMBAI,
+    '0x8cc8538d60901d19692F5ba22684732Bc28F54A3',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  )),  
   _WETH)
 
 var _toSignificantRoundin, _toFixedRounding
