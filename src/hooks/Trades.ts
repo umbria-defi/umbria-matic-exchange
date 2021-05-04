@@ -10,8 +10,6 @@ import { useActiveWeb3React } from './index'
 
 function useAllCommonPairs(currencyA?: Currency, currencyB?: Currency): Pair[] {
   
-  console.log('currency A' + currencyA + ' currency B '+currencyB)
-
   const { chainId } = useActiveWeb3React()
 
   const bases: Token[] = chainId ? BASES_TO_CHECK_TRADES_AGAINST[chainId] : []

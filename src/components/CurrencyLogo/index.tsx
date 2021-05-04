@@ -35,7 +35,6 @@ export default function CurrencyLogo({
 
   const srcs: string[] = useMemo(() => {
     if (currency === ETHER) {
-      console.log('currency is ethereum!!!!!!!!!!!');
       return []
     }
 
