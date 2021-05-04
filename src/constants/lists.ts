@@ -1,10 +1,11 @@
 // the Umbria Default token list lives here
-export const DEFAULT_TOKEN_LIST_URL = 'https://raw.githubusercontent.com/Oskii/UmbriaSwapTokenLists/master/oscars.tokenlist.json';
+export const DEFAULT_TOKEN_LIST_URL = 'https://raw.githubusercontent.com/BarneyChambers/umbria-polygon-token-list/master/umbria-token-list.json';
 
 export const DEFAULT_LIST_OF_LISTS: string[] = [
   DEFAULT_TOKEN_LIST_URL,
+  'https://raw.githubusercontent.com/BarneyChambers/umbria-polygon-token-list/master/umbria-token-list.json'
   // 't2crtokens.eth', // kleros
-  'tokens.1inch.eth', // 1inch
+  //'tokens.1inch.eth', // 1inch
   // 'synths.snx.eth',
   // 'tokenlist.dharma.eth',
   // 'defi.cmc.eth',
