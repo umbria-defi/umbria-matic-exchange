@@ -95,23 +95,21 @@ export default function Menu() {
       </StyledMenuButton>
       {open && (
         <MenuFlyout>
-          <MenuItem id="link" href="https://sushiswap.vision/">
+          
+          <MenuItem id="link" href="https://explorer-mainnet.maticvigil.com/">
             <PieChart size={14} />
             {t('analytics')}
           </MenuItem>
-          <MenuItem id="link" href="https://sushiswapclassic.org/staking">
-            <DollarSign size={14} />
-            {t('stake')}
-          </MenuItem>
-          <MenuItem id="link" href="https://sushiswapclassic.org/farms">
+         
+          <MenuItem id="link" href="https://farm.umbria.network">
             <Sunrise size={14} />
             {t('farm')}
           </MenuItem>
-          <MenuItem id="link" href="https://discord.gg/AgJsrK7">
+          <MenuItem id="link" href="https://discord.gg/8Ms7Cr4">
             <MessageCircle size={14} />
             {t('discord')}
           </MenuItem>
-          <MenuItem id="link" href="https://github.com/jiro-ono/sushiswap-classic-interface">
+          <MenuItem id="link" href="https://github.com/umbria-defi/umbria-matic-exchange">
             <Code size={14} />
             {t('code')}
           </MenuItem>

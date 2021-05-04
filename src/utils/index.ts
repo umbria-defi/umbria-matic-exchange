@@ -23,11 +23,11 @@ const ETHERSCAN_PREFIXES: { [chainId in ChainId]: string } = {
   4: 'rinkeby.',
   5: 'goerli.',
   42: 'kovan.',
-  80001: 'mumbai.'
+  137: 'explorer-mainnet.maticvigil.com'
 }
 
 export function getEtherscanLink(chainId: ChainId, data: string, type: 'transaction' | 'token' | 'address'): string {
-  const prefix = `https://${ETHERSCAN_PREFIXES[chainId] || ETHERSCAN_PREFIXES[1]}etherscan.io`
+  const prefix = `https://${ETHERSCAN_PREFIXES[chainId] || ETHERSCAN_PREFIXES[137]}`
 
   switch (type) {
     case 'transaction': {
@@ -93,6 +93,7 @@ export function getContract(address: string, ABI: any, library: Web3Provider, ac
 
 // account is optional
 export function getRouterContract(_: number, library: Web3Provider, account?: string): Contract {
+  console.log('router address: '+ROUTER_ADDRESS)
   return getContract(ROUTER_ADDRESS, IUniswapV2Router02ABI, library, account)
 }
 

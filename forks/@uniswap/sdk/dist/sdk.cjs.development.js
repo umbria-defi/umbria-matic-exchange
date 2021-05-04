@@ -26,7 +26,7 @@ var _SOLIDITY_TYPE_MAXIMA
   ChainId[(ChainId['RINKEBY'] = 4)] = 'RINKEBY'
   ChainId[(ChainId['G\xD6RLI'] = 5)] = 'G\xD6RLI'
   ChainId[(ChainId['KOVAN'] = 42)] = 'KOVAN'
-  ChainId[(ChainId['MUMBAI'] = 80001)] = 'MUMBAI'
+  ChainId[(ChainId['MATIC'] = 137)] = 'MATIC'
 })(exports.ChainId || (exports.ChainId = {}))
 ;(function(TradeType) {
   TradeType[(TradeType['EXACT_INPUT'] = 0)] = 'EXACT_INPUT'
@@ -38,8 +38,8 @@ var _SOLIDITY_TYPE_MAXIMA
   Rounding[(Rounding['ROUND_UP'] = 2)] = 'ROUND_UP'
 })(exports.Rounding || (exports.Rounding = {}))
 
-var FACTORY_ADDRESS = '0xBd74CAF79af131Be929239C93C7143E4E7bCf8ED'
-var INIT_CODE_HASH = '0x55c6219005f97743e7dfcd0fe4861bdefe98412eeeec68dff8bd784ee5681b5b'
+var FACTORY_ADDRESS = '0x7Ff9B69a7b6F11780C3D5d7D04B078ae5e4c219A'
+var INIT_CODE_HASH = '0x0c16fef42414fd9f8b3d3cabf87274edd5a3f9c6fccce5c66c43752d1a6849ce'
 var MINIMUM_LIQUIDITY = /*#__PURE__*/ JSBI.BigInt(1000) // exports for internal consumption
 
 var ZERO = /*#__PURE__*/ JSBI.BigInt(0)
@@ -481,14 +481,14 @@ var WETH =
   )),
   (_WETH[exports.ChainId.ROPSTEN] = /*#__PURE__*/ new Token(
     exports.ChainId.ROPSTEN,
-    '0x8cc8538d60901d19692F5ba22684732Bc28F54A3',
+    '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
     18,
     'WETH',
     'Wrapped Ether'
   )),
   (_WETH[exports.ChainId.RINKEBY] = /*#__PURE__*/ new Token(
     exports.ChainId.RINKEBY,
-    '0x8cc8538d60901d19692F5ba22684732Bc28F54A3',
+    '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
     18,
     'WETH',
     'Wrapped Ether'
@@ -507,8 +507,8 @@ var WETH =
     'WETH',
     'Wrapped Ether'
   )),
-  (_WETH[exports.ChainId.MUMBAI] = /*#__PURE__*/ new Token(
-    exports.ChainId.MUMBAI,
+  (_WETH[exports.ChainId.MATIC] = /*#__PURE__*/ new Token(
+    exports.ChainId.MATIC,
     '0x5B67676a984807a212b1c59eBFc9B3568a474F0a',
     18,
     'WETH',
