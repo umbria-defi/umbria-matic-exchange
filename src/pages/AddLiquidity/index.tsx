@@ -218,8 +218,6 @@ export default function AddLiquidity({
         if (error?.code !== 4001) {
           console.error(error)
         }
-        console.log('error here! ===== factory address: '+FACTORY_ADDRESS)
-        console.log(error);
 
         console.error(error)
       })

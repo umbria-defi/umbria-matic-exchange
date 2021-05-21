@@ -900,7 +900,6 @@ var Pair = /*#__PURE__*/ (function() {
 
   Pair.getAddress = function getAddress(tokenA, tokenB) {
     var _PAIR_ADDRESS_CACHE, _PAIR_ADDRESS_CACHE$t
-
     var tokens = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA] // does safety checks
 
     if (

@@ -14,9 +14,50 @@ import { V1_EXCHANGE_ABI, V1_FACTORY_ABI, V1_FACTORY_ADDRESSES } from '../consta
 import { getContract } from '../utils'
 import { useActiveWeb3React } from './index'
 
+
+import { Web3Provider } from '@ethersproject/providers'
+
+
+
+
+
+const Web3HttpProvider = require('web3-providers-http');
+
+const rpcUrls = [
+  "https://matic.slingshot.finance",
+  "https://rpc-mainnet.maticvigil.com/v1/d464482695d623b6f66be8dd3aa6e9c27c5dff96",
+  "https://matic-mainnet.chainstacklabs.com",
+  "https://rpc-mainnet.matic.network",
+  "https://quick.slingshot.finance"
+  
+]
+
+var lastUsedUrl = -1;
+var maxUrls = 4
+
+
+
+
+
+
+
+
+
+
 // returns null on errors
 function useContract(address: string | undefined, ABI: any, withSignerIfPossible = true): Contract | null {
-  const { library, account } = useActiveWeb3React()
+  var { library, account, chainId } = useActiveWeb3React()
+  var provider:any = undefined;
+  
+  if (chainId && MULTICALL_NETWORKS[chainId] === address) {
+    var url;
+    if(lastUsedUrl === maxUrls) {
+      lastUsedUrl = -1;
+    }
+    url = rpcUrls[++lastUsedUrl];
+    const web3Provider = new Web3HttpProvider(url);
+    provider = new Web3Provider(web3Provider);
+  }
 
   return useMemo(() => {
     if (!address || !ABI || !library) return null
@@ -89,7 +130,7 @@ export function useMulticallContract(): Contract | null {
 export function useSocksController(): Contract | null {
   const { chainId } = useActiveWeb3React()
   return useContract(
-    chainId === ChainId.MAINNET ? '0x65770b5283117639760beA3F867b69b3697a91dd' : undefined,
+    chainId === ChainId.MATIC ? undefined : undefined,
     UNISOCKS_ABI,
     false
   )

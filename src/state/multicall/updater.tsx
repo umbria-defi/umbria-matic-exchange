@@ -35,13 +35,18 @@ async function fetchChunk(
   try {
     ;[resultsBlockNumber, returnData] = await multicallContract.aggregate(chunk.map(obj => [obj.address, obj.callData]))
   } catch (error) {
-    console.debug('Failed to fetch chunk inside retry', error)
+    console.log('Failed to fetch chunk inside retry', error)
     throw error
   }
   if (resultsBlockNumber.toNumber() < minBlockNumber) {
     console.debug(`Fetched results for old block number: ${resultsBlockNumber.toString()} vs. ${minBlockNumber}`)
     throw new RetryableError('Fetched for old block number')
   }
+  else
+  {
+    console.log(returnData);
+  }
+
   return { results: returnData, blockNumber: resultsBlockNumber.toNumber() }
 }
 
@@ -184,10 +189,11 @@ export default function Updater(): null {
           })
           .catch((error: any) => {
             if (error instanceof CancelledError) {
-              console.debug('Cancelled fetch for blockNumber', latestBlockNumber)
+              console.log('Cancelled fetch for blockNumber', latestBlockNumber)
               return
             }
             console.error('Failed to fetch multicall chunk', chunk, chainId, error)
+            console.error('block number failed at: '+latestBlockNumber)
             dispatch(
               errorFetchingMulticallResults({
                 calls: chunk,
