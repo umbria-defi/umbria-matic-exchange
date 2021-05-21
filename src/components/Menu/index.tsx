@@ -101,7 +101,7 @@ export default function Menu() {
             {t('analytics')}
           </MenuItem>
          
-          <MenuItem id="link" href="https://farm.umbria.network">
+          <MenuItem id="link" href="https://maticfarm.umbria.network">
             <Sunrise size={14} />
             {t('farm')}
           </MenuItem>
