@@ -117,6 +117,7 @@
   "browseList": "Browse lists",
   "insufficientLiquidityForThisTrade": "Insufficient liquidity for this trade.",
   "connectWallet": "Connect Wallet",
+  "switchNetwork": "Switch Network",
   "invalidPair": "Invalid pair",
   "enterAnAmount": "Enter an amount",
   "selectAToken": "Select a token",

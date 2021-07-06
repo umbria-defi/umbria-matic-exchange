@@ -5,6 +5,7 @@ import { isMobile } from 'react-device-detect'
 import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
 import usePrevious from '../../hooks/usePrevious'
 import { useWalletModalOpen, useWalletModalToggle } from '../../state/application/hooks'
+import { ButtonSecondary } from '../Button'
 
 import Modal from '../Modal'
 import AccountDetails from '../AccountDetails'
@@ -105,6 +106,19 @@ const OptionGrid = styled.div`
 const HoverText = styled.div`
   :hover {
     cursor: pointer;
+  }
+`
+
+const SwitchNetwork = styled(ButtonSecondary)`
+  width: fit-content;
+  align-items: center;
+  font-weight: 400;
+  margin-left: 8px;
+  font-size: 0.825rem;
+  padding: 4px 6px;
+  :hover {
+    cursor: pointer;
+    text-decoration: underline;
   }
 `
 
@@ -296,11 +310,20 @@ export default function WalletModal({
           </CloseIcon>
           <HeaderRow>{error instanceof UnsupportedChainIdError ? 'Wrong Network' : 'Error connecting'}</HeaderRow>
           <ContentWrapper>
-            {error instanceof UnsupportedChainIdError ? (
-              <h5>Please connect to the appropriate Ethereum network.</h5>
-            ) : (
-              'Error connecting. Try refreshing the page.'
-            )}
+              {error instanceof UnsupportedChainIdError ? (
+                <h5>You are currently connected to an unsupported network. Please switch to the MATIC or MATIC TESTNET network</h5>
+              ) : (
+                'Error connecting. Try refreshing the page.'
+              )}
+              <Blurb>
+              <SwitchNetwork
+                onClick={() => {
+                      console.log("Test");
+                }}
+              >
+              Switch Network
+            </SwitchNetwork>
+            </Blurb>
           </ContentWrapper>
         </UpperSection>
       )
