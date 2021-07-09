@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react'
 import ReactGA from 'react-ga'
 import styled from 'styled-components'
 import { isMobile } from 'react-device-detect'
-import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
+import { UnsupportedChainIdError, useWeb3React, getWeb3ReactContext } from '@web3-react/core'
 import usePrevious from '../../hooks/usePrevious'
 import { useWalletModalOpen, useWalletModalToggle } from '../../state/application/hooks'
 import { ButtonSecondary } from '../Button'
+import { ChainId } from '@uniswap/sdk'
 
 import Modal from '../Modal'
 import AccountDetails from '../AccountDetails'
@@ -109,9 +110,9 @@ const HoverText = styled.div`
   }
 `
 
-const SwitchNetwork = styled(ButtonSecondary)`
+
+const ChangeNetwork = styled(ButtonSecondary)`
   width: fit-content;
-  align-items: center;
   font-weight: 400;
   margin-left: 8px;
   font-size: 0.825rem;
@@ -311,18 +312,27 @@ export default function WalletModal({
           <HeaderRow>{error instanceof UnsupportedChainIdError ? 'Wrong Network' : 'Error connecting'}</HeaderRow>
           <ContentWrapper>
               {error instanceof UnsupportedChainIdError ? (
-                <h5>You are currently connected to an unsupported network. Please switch to the MATIC or MATIC TESTNET network</h5>
+                <h5>You are currently connected to an unsupported network. Please switch to the MATIC network</h5>
               ) : (
                 'Error connecting. Try refreshing the page.'
               )}
               <Blurb>
-              <SwitchNetwork
-                onClick={() => {
-                      console.log("Test");
-                }}
-              >
-              Switch Network
-            </SwitchNetwork>
+
+                  <ChangeNetwork
+                    style={{ fontSize: '.825rem', fontWeight: 400 }}
+                    onClick={() => {
+                      injected.getProvider().then((provider) => {
+                        provider.request({
+                          method: 'wallet_switchEthereumChain',
+                          params: [{ chainId: '0x' + ChainId.MATIC.toString(16) }],
+                        }).catch(() => {
+
+                        })
+                      })
+                    }}
+                  >
+                    Switch
+                    </ChangeNetwork>
             </Blurb>
           </ContentWrapper>
         </UpperSection>

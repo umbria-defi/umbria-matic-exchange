@@ -29,7 +29,7 @@ export default function Web3ReactManager({ children }: { children: JSX.Element }
 
   // after eagerly trying injected, if the network connect ever isn't active or in an error state, activate itd
   useEffect(() => {
-    if (triedEager && !networkActive && !networkError && !active) {
+    if (triedEager && !networkActive && !networkError && !active) { 
       activateNetwork(network)
     }
   }, [triedEager, networkActive, networkError, activateNetwork, active])
