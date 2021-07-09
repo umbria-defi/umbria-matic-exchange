@@ -324,9 +324,10 @@ export default function WalletModal({
                       injected.getProvider().then((provider) => {
                         provider.request({
                           method: 'wallet_switchEthereumChain',
+                          // Web3 expects a hex-formatted representation
                           params: [{ chainId: '0x' + ChainId.MATIC.toString(16) }],
                         }).catch(() => {
-
+                          // Probably should warn the user here if there is an outstanding request
                         })
                       })
                     }}
