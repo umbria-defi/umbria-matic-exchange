@@ -6,11 +6,10 @@ import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
 import usePrevious from '../../hooks/usePrevious'
 import { useWalletModalOpen, useWalletModalToggle } from '../../state/application/hooks'
 import { ButtonSecondary } from '../Button'
-import { ChainId } from '@uniswap/sdk'
-
 import Modal from '../Modal'
 import AccountDetails from '../AccountDetails'
 import PendingView from './PendingView'
+import WrongNetworkView from './WrongNetworkView'
 import Option from './Option'
 import { SUPPORTED_WALLETS } from '../../constants'
 import { ExternalLink } from '../../theme'
@@ -312,29 +311,10 @@ export default function WalletModal({
           <HeaderRow>{error instanceof UnsupportedChainIdError ? 'Wrong Network' : 'Error connecting'}</HeaderRow>
           <ContentWrapper>
               {error instanceof UnsupportedChainIdError ? (
-                <h5>You are currently connected to an unsupported network. Please switch to the MATIC network</h5>
+                <WrongNetworkView/>
               ) : (
                 'Error connecting. Try refreshing the page.'
               )}
-              <Blurb>
-
-                  <ChangeNetwork
-                    style={{ fontSize: '.825rem', fontWeight: 400 }}
-                    onClick={() => {
-                      injected.getProvider().then((provider) => {
-                        provider.request({
-                          method: 'wallet_switchEthereumChain',
-                          // Web3 expects a hex-formatted representation
-                          params: [{ chainId: '0x' + ChainId.MATIC.toString(16) }],
-                        }).catch(() => {
-                          // Probably should warn the user here if there is an outstanding request
-                        })
-                      })
-                    }}
-                  >
-                    Switch
-                    </ChangeNetwork>
-            </Blurb>
           </ContentWrapper>
         </UpperSection>
       )
