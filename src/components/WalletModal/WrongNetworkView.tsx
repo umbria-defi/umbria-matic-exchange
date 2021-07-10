@@ -1,11 +1,9 @@
 
-import { AbstractConnector } from '@web3-react/abstract-connector'
 import React from 'react'
 import styled from 'styled-components'
 import { injected } from '../../connectors'
 import { ButtonSecondary } from '../Button'
 import { ChainId } from '@uniswap/sdk'
-import { InjectedConnector } from '@web3-react/injected-connector'
 
 const ChangeNetwork = styled(ButtonSecondary)`
   width: fit-content;
