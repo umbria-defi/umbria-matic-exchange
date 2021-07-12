@@ -2,7 +2,7 @@
 
 Forked from [Uniswap/uniswap-interface](https://github.com/Uniswap/uniswap-interface), and updated to work with Umbria contracts running on the Matic sidechain.
 
-To access the Umbria Matic Exchnage, visit [https://v2.umbria.network](Not yet available).
+To access the Umbria Matic Exchnage, visit [https://matic.umbria.exchange/](Now available).
 
 ## Development
 
