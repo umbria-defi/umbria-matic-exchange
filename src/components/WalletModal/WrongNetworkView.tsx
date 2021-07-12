@@ -23,7 +23,6 @@ const MessageWrapper = styled.div`
   ${({ theme }) => theme.flexRowNoWrap}
   justify-content: center;
   flex-wrap: wrap;
-  margin-left:1rem;
   ${({ theme }) => theme.mediaWidth.upToMedium`
     margin: 1rem;
     font-size: 12px;
