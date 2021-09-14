@@ -23,22 +23,23 @@ const ETHERSCAN_PREFIXES: { [chainId in ChainId]: string } = {
   4: 'rinkeby.',
   5: 'goerli.',
   42: 'kovan.',
-  137: 'info.umbria.exchange'
+  137: 'explorer-mainnet.maticvigil.com'
 }
 
 export function getEtherscanLink(chainId: ChainId, data: string, type: 'transaction' | 'token' | 'address'): string {
   const prefix = `https://${ETHERSCAN_PREFIXES[chainId] || ETHERSCAN_PREFIXES[137]}`
+  const infoPrefix = `https://info.umbria.exchange`
 
   switch (type) {
     case 'transaction': {
       return `${prefix}/tx/${data}`
     }
     case 'token': {
-      return `${prefix}/token/${data}`
+      return `${infoPrefix}/pair/${data}`
     }
     case 'address':
     default: {
-      return `${prefix}/address/${data}`
+      return `${infoPrefix}/account/${data}`
     }
   }
 }
