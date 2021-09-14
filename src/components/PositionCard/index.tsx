@@ -224,7 +224,7 @@ export default function FullPositionCard({ pair, border }: PositionCardProps) {
             </FixedHeightRow>
 
             <AutoRow justify="center" marginTop={'10px'}>
-              <ExternalLink href={`https://info.umbria.exchange/tokens/${pair.liquidityToken.address}`}>
+              <ExternalLink href={`https://info.umbria.exchange/pools/${pair.liquidityToken.address}`}>
                 View pool information ↗
               </ExternalLink>
             </AutoRow>
