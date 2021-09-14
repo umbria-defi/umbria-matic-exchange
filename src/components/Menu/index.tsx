@@ -96,7 +96,7 @@ export default function Menu() {
       {open && (
         <MenuFlyout>
           
-          <MenuItem id="link" href="https://explorer-mainnet.maticvigil.com/">
+          <MenuItem id="link" href="https://info.umbria.exchange">
             <PieChart size={14} />
             {t('analytics')}
           </MenuItem>
