@@ -24,12 +24,12 @@ import { Web3Provider } from '@ethersproject/providers'
 const Web3HttpProvider = require('web3-providers-http');
 
 const rpcUrls = [
+  "https://rpc.umbria.network/matic",
   "https://matic.slingshot.finance",
   "https://rpc-mainnet.maticvigil.com/v1/d464482695d623b6f66be8dd3aa6e9c27c5dff96",
   "https://matic-mainnet.chainstacklabs.com",
   "https://rpc-mainnet.matic.network",
   "https://quick.slingshot.finance"
-  
 ]
 
 var lastUsedUrl = -1;
